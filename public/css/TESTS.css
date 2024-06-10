@@ -1,0 +1,106 @@
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #ffb8b89a; 
+    color: rgb(0, 0, 0); 
+}
+.my-button {  margin-left: 45%;
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    border: 0px solid #ff2121;
+    border-radius: 5px;
+    background-color: #ff3f3f;
+    color: rgb(255, 255, 255);
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+
+.my-button:hover {
+    background-color: white;
+    color: #ff3939;
+}
+
+.my-button:focus {
+    outline: none;
+    box-shadow: 0 0 5px #5e4caf;
+}
+
+    
+}
+h1 {font-size: 44px;
+    color: rgb(243, 0, 0);
+    font-family: "Lato", sans-serif;
+    font-weight: 900;
+    font-style: italic;
+    margin-left: 42%;
+}
+
+header, nav, ul, li {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #ffb8b89a; 
+    color: rgb(0, 0, 0); 
+}
+
+.logo-container {
+    margin-right: 20px; 
+}
+
+.logo-container img {
+    max-width: 200px; 
+}
+
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 15px; 
+}
+
+nav ul li:last-child {
+    margin-right: 0; 
+}
+
+nav ul li a {
+   
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    padding: 15px 30px;
+    display: inline-block;
+     font-size: 24px; 
+    text-decoration: none;
+    color: #fff;
+}
+
+nav ul li a:hover {
+    background-color: #f08f8f;
+}
+
+
+.BUTTONS{ color: #ff8888;
+
+}
+
+
+

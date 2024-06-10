@@ -1,0 +1,67 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.dashboard {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 20px;
+}
+
+.box {
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.continue-course {
+    grid-column: span 2;
+}
+
+.hours-spent {
+    grid-column: span 1;
+}
+
+.your-courses {
+    grid-column: span 1;
+}
+
+.statistics {
+    grid-column: span 1;
+}
+
+.assignments {
+    grid-column: span 1;
+}
+
+.today-progress {
+    grid-column: span 2;
+}
+
+.completed {
+    grid-column: span 1;
+}
+
+.top-grades {
+    grid-column: span 2;
+}
+
+h2 {
+    margin-top: 0;
+    font-size: 1.25em;
+}
+
+a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}

@@ -1,0 +1,115 @@
+
+
+body {
+    height: 500%;
+    margin: 0;}
+
+
+
+.my-button {  margin-left: 45%;
+    display: inline-block;
+    padding: 20px 40px;
+    font-family: "Lato", sans-serif;
+    font-size: 28px;
+    font-weight: bold;
+    text-align: left;
+    text-decoration: none;
+    cursor: pointer;
+    border: 2px solid #ffffff;
+    border-radius: 2px;
+    background-color: #ff3f3f;
+    color: rgb(255, 255, 255);
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+
+.my-button:hover {
+    background-color: white;
+    color: #ff3939;
+}
+
+.my-button:focus {
+    outline: none;
+    box-shadow: 0 0 5px #000000;
+}
+
+.text{   
+    color: rgb(255, 255, 255);
+    font-family: "Lato", sans-serif;
+    font-weight: 900;
+    font-style: italic;
+    font-size: 32px;
+    margin-left: 90px; 
+}    
+
+.image h1{
+    display: flex;   
+    float: left;
+    color: rgb(243, 0, 0);
+    font-family: "Lato", sans-serif;
+    font-weight: 900;
+    font-style: italic;
+    font-size: 44px;
+}
+
+.image{ 
+    width:100%;
+    height: 500px;
+    background: url('c:\Users\msi\Desktop\PFE\homepage\new\main bg.jpg');
+}
+
+header, nav, ul, li {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #ebc5b69a; 
+    color: rgb(0, 0, 0); 
+}
+
+.logo-container {
+    margin-right: 20px; 
+}
+
+.logo-container img {
+    max-width: 200px; 
+}
+
+
+
+
+nav ul li {
+    display: inline;
+    margin-right: 15px; 
+}
+
+
+nav ul li a {
+   
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    padding: 15px 30px;
+    display: inline-block;
+     font-size: 24px; 
+    text-decoration: none;
+    color: #000000;
+}
+
+nav ul li a:hover {
+    color: #ffffff;
+    background-color: #f08f8f;
+}
+
+
+.BUTTONS{ color: #889aff;
+
+}
+
+
+

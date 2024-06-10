@@ -1,0 +1,215 @@
+html, body {
+    background: linear-gradient(45deg, #f0f9ff 0%,#ffafb3 47%,#9fbcf9 88%,#c8d8f7 99%);
+    font-family: 'Montserrat', sans-serif;
+    scroll-behavior: smooth;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background-attachment: fixed;
+  }
+
+  body {
+    height: 500%;
+    margin: 0;
+    
+  }
+
+  .section {
+    height: 1100px; /* Example height for demonstration */
+    margin-bottom: 0px; /* Space between sections */
+    border: 0px solid #e27878b9; /* Just for visual separation */
+  }
+
+
+
+
+
+  .my-button {    
+    display: inline-block;
+    padding: 20px 40px;
+    font-family: "Lato", sans-serif;
+    font-size: 28px;
+    font-weight: bold;
+    text-align: left;
+    text-decoration: none;
+    cursor: pointer;
+    border: 2px solid #ffffff;
+    border-radius: 2px;
+    background-color: #ff3f3f;
+    color: rgb(255, 255, 255);
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+  }
+
+  .my-button:hover {
+    background-color: white;
+    color: #ff3939;
+  }
+
+  .my-button:focus {
+    outline: none;
+    box-shadow: 0 0 5px #000000;
+  }
+.h3{   
+   color: rgb(255, 255, 255);
+  font-family: "Lato", sans-serif;
+  font-weight: 900;
+  font-style: italic;
+  font-size: 32px;
+  margin-left: 90px;
+
+} 
+ .text {
+  position: absolute;
+  top: 80%;
+  left: 20%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+  font-size: 4rem;
+  font-weight: 900;
+  font-style: italic;
+  margin-left: 90px;   
+  font-family: "Lato", sans-serif;
+}
+
+  .image-container { width: cover;
+    height: cover;
+    object-fit: cover;
+    position: relative;
+    height: 1000px;/* Adjust the height as needed */
+    margin-top: 80px;
+  }
+  .image h1{
+    display: flex;   
+    float: left;
+    color: rgb(243, 0, 0);
+    font-family: "Lato", sans-serif;
+    font-weight: 900;
+    font-style: italic;
+    font-size: 44px;
+}
+  .image {
+    width: cover;
+    height: cover;
+    object-fit: cover;
+  }
+
+  .image1 h3{
+    display: flex;   
+    float: left;
+    color: rgb(243, 0, 0);
+    font-family: "Lato", sans-serif;
+    font-weight: 900;
+    font-style: italic;
+    font-size: 44px;
+    
+}
+  .text2
+    {
+      position: absolute;
+      top: 60%;
+      left: 35%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      color: white;
+      font-size: 4rem;
+      font-weight: 900;
+      font-style: italic;
+      margin-left: 90px;   
+      font-family: "Lato", sans-serif;
+    }
+  
+  .my-button {
+    margin-top: 7rem; /* Adjust the margin as needed */
+  }
+  header, nav, ul, li {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+  }
+
+  header {position: sticky;
+    top: 0;
+    z-index: 100; /* This ensures the header stays on top of other page elements. Adjust as needed. */
+    background-color: #f0f0f0; /* Add your desired background color */
+    padding: 10px; 
+    display: flex;
+    position: fixed;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #ffc2c2e0;
+    color: rgb(0, 0, 0);
+    height: 100px;
+    width: 100%;
+    text-align: center;
+    
+  }
+
+  .logo-container {
+    margin-right: 20px;
+  }
+
+  .logo-container img {
+    max-width: 200px;
+  }
+
+  nav ul li {
+display: inline;
+    margin-right: 15px;
+  }
+
+  nav ul li a {
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    padding: 10px 20px;
+    display: inline-block;
+    font-size: 20px;
+    text-decoration: none;
+    color: #000000;
+  }
+
+  nav ul li a:hover {
+    color: #ffffff;
+    background-color: #f08f8f;
+  }
+
+  .BUTTONS {
+    color: #889aff;
+    margin-right:50px;
+  }
+
+  
+
+  .my-button a,
+  .button-COURSES a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .button-COURSES {
+    display: inline-block;
+    padding: 20px 40px;
+    font-family: "Lato", sans-serif;
+    font-size: 28px;
+    font-weight: bold;
+    text-align: left;
+    text-decoration: none;
+    cursor: pointer;
+    border: 2px solid #ffffff;
+    border-radius: 2px;
+    background-color: #ff3f3f;
+    color: rgb(255, 255, 255);
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+  }
+
+  .button-COURSES:hover {
+    background-color: white;
+    color: #ff3939;
+  }
+
+  .button-COURSES:focus {
+    outline: none;
+    box-shadow: 0 0 5px #fffcfc;
+  } 
