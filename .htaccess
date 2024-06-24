@@ -1,0 +1,8 @@
+RewriteEngine on
+DirectoryIndex index.php
+
+# Exclude both the /inscription and /revision folders from Symfony routing
+RewriteCond %{REQUEST_URI} !^/(inscription|revision)($|/)
+RewriteCond %{REQUEST_URI} !^public
+RewriteRule ^(.*)$ public/$1 [L]
+
