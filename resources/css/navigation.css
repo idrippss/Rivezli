@@ -1,52 +1,49 @@
 header, nav, ul, li {
-    margin: 0;
-    padding: 0;
-    text-align: center;
-  }
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
 
-  header {position: sticky;
-    top: 0;
-    z-index: 100; /* This ensures the header stays on top of other page elements. Adjust as needed. */
-    background-color: #f0f0f0; /* Add your desired background color */
-    padding: 10px; 
-    display: flex;
-    position: fixed;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 20px;
-    background-color: #ffc2c2e0;
-    color: rgb(0, 0, 0);
-    height: 100px;
-    width: 100%;
-    text-align: center;
-    
-  }
+header {
+  position: fixed;
+  top: 0;
+  z-index: 100;
+  background-color: #ffc2c2e0;
+  color: rgb(0, 0, 0);
+  height: 100px;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+}
 
-  .logo-container {
-    margin-right: 20px;
-  }
+.logo-container {
+  margin-right: 20px;
+}
 
-  .logo-container img {
-    max-width: 200px;
-  }
+.logo-container img {
+  max-width: 200px;
+}
 
-  nav ul li {
-display: inline;
-    margin-right: 15px;
-  }
+nav ul li {
+  display: inline;
+  margin-right: 15px;
+}
 
-  nav ul li a {
-    font-family: "Lato", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    padding: 10px 20px;
-    display: inline-block;
-    font-size: 20px;
-    text-decoration: none;
-    color: #000000;
-  }
+nav ul li a {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  padding: 10px 20px;
+  display: inline-block;
+  font-size: 20px;
+  text-decoration: none;
+  color: #000000;
+}
 
-  nav ul li a:hover {
-    color: #ffffff;
-    background-color: #f08f8f;
-  }
+nav ul li a:hover {
+  color: #ffffff;
+  background-color: #f08f8f;
+}
