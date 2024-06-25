@@ -1,6 +1,17 @@
 @extends('layouts.app')
 <style>
-
+    .old-content {
+        background-color: #ffeef0;
+        white-space: pre-wrap;
+        padding: 15px;
+        border-radius: 5px;
+    }
+    .new-content {
+        background-color: #e6ffed;
+        white-space: pre-wrap;
+        padding: 15px;
+        border-radius: 5px;
+    }
     .diff-insert {
         background-color: #e6ffed;
     }
@@ -8,7 +19,6 @@
         background-color: #ffeef0;
         text-decoration: line-through;
     }
-
 </style>
 @section('content')
     <div class="container mt-5">
@@ -25,7 +35,7 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="card">
-                    <div class="card-body">
+                    <div class="card-body old-content">
                         <h5 class="card-title">Ancien Contenu</h5>
                         <pre id="old-content">{{ $exercise->content }}</pre>
                     </div>
@@ -33,7 +43,7 @@
             </div>
             <div class="col-md-6">
                 <div class="card">
-                    <div class="card-body">
+                    <div class="card-body new-content">
                         <h5 class="card-title">Nouveau Contenu</h5>
                         <pre id="new-content">{{ $newContent }}</pre>
                     </div>
