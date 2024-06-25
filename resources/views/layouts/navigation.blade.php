@@ -22,6 +22,12 @@
                     <x-nav-link href="/chapitres" :active="request()->is('chapitres')">
                         {{ __('Support') }}
                     </x-nav-link>
+                    <x-nav-link href="{{ route('ia-generate.index') }}" :active="request()->routeIs('ia-generate.index')">
+                        {{ __('Génération IA') }}
+                    </x-nav-link>
+                    <x-nav-link href="{{ route('exercices.index') }}" :active="request()->routeIs('exercices.index')">
+                        {{ __('Supports Générés') }}
+                    </x-nav-link>
                 </div>
             </div>
 
@@ -83,6 +89,12 @@
             <x-responsive-nav-link href="/chapitres" :active="request()->is('chapitres')">
                 {{ __('Support') }}
             </x-responsive-nav-link>
+            <x-nav-link href="{{ route('ia-generate.index') }}" :active="request()->routeIs('ia-generate.index')">
+                {{ __('Génération IA') }}
+            </x-nav-link>
+            <x-nav-link href="{{ route('exercices.index') }}" :active="request()->routeIs('exercices.index')">
+                {{ __('Supports Générés') }}
+            </x-nav-link>
         </div>
 
         @auth

@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\ChapitreController;
+use App\Http\Controllers\ExerciseController;
+use App\Http\Controllers\IAGenerateController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MatiereController;
@@ -35,6 +37,22 @@ Route::middleware('auth')->group(function () {
     Route::get('chapitres/{chapitre}/edit', [ChapitreController::class, 'edit'])->name('chapitres.edit');
     Route::put('chapitres/{chapitre}', [ChapitreController::class, 'update'])->name('chapitres.update');
     Route::delete('chapitres/{chapitre}', [ChapitreController::class, 'destroy'])->name('chapitres.destroy');
+
+    //IA root
+    Route::get('ia-generate', [IAGenerateController::class, 'index'])->name('ia-generate.index');
+    Route::post('ia-generate', [IAGenerateController::class, 'generate'])->name('ia-generate.generate');
+
+    //ia root View
+    Route::get('/exercice/{id}', [ExerciseController::class, 'show'])->name('exercice.show');
+
+    //Ia exercice index
+    Route::get('/exercices', [ExerciseController::class, 'index'])->name('exercices.index');
+
+
+    //improve content
+    Route::post('/exercises/{exercise}/improve', [ExerciseController::class, 'improve'])->name('exercises.improve');
+    Route::get('/exercises/{exercise}/compare', [ExerciseController::class, 'compare'])->name('exercises.compare');
+    Route::put('/exercises/{exercise}', [ExerciseController::class, 'update'])->name('exercises.update');
 });
 
 require __DIR__.'/auth.php';
