@@ -4,6 +4,7 @@ use App\Http\Controllers\ChapitreController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ExerciseController;
 use App\Http\Controllers\IAGenerateController;
+use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MatiereController;
@@ -52,7 +53,21 @@ Route::middleware('auth')->group(function () {
     Route::post('/exercises/{exercise}/improve', [ExerciseController::class, 'improve'])->name('exercises.improve');
     Route::get('/exercises/{exercise}/compare', [ExerciseController::class, 'compare'])->name('exercises.compare');
     Route::put('/exercises/{exercise}', [ExerciseController::class, 'update'])->name('exercises.update');
+
+    //User LListe root
+    Route::resource('users', UserController::class)->except(['create', 'show']);
+    Route::post('users/store-admin', [UserController::class, 'storeAdmin'])->name('users.storeAdmin');
+
+    //profil user
+    Route::get('/profile', [ProfileController::class, 'show'])->name('profile.show');
+    Route::post('/profile', [ProfileController::class, 'update'])->name('profile.update');
+
+
+
 });
+
+
+
 
 require __DIR__.'/auth.php';
 

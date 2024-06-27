@@ -5,7 +5,7 @@
     <div class="container mt-5">
         <div class="card">
             <div class="card-body">
-                <h2 class="mb-3">Ajouter un Chapitre</h2>
+
 
                 @if ($errors->any())
                     <div class="alert alert-danger">

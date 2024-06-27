@@ -12,8 +12,8 @@
                 @endif
 
                 <div class="d-flex justify-content-between align-items-center mb-3">
-                    <h2 class="mb-0">Chapitres</h2>
-                    <a href="{{ route('chapitres.create') }}" class="btn btn-primary">Ajouter un nouveau Chapitre</a>
+                    <h2 class="mb-0">Ressources des matières</h2>
+                    <a href="{{ route('chapitres.create') }}" class="btn btn-primary">Ajouter des ressources</a>
                 </div>
 
                 <table class="table table-hover">

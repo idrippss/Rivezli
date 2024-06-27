@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Exercise;
 use App\Models\Matiere;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use OpenAI;
 use SebastianBergmann\Diff\Differ;
 use SebastianBergmann\Diff\Output\UnifiedDiffOutputBuilder;
@@ -23,19 +24,23 @@ class ExerciseController extends Controller
         $matieres = Matiere::all();
         $exercices = Exercise::query();
 
+        // Filtrer par type si spécifié
         if ($request->filled('type')) {
             $exercices->where('type', $request->input('type'));
         }
 
+        // Filtrer par matière si spécifié
         if ($request->filled('matiere_id')) {
             $matiere = Matiere::find($request->input('matiere_id'));
             $exercices->where('matiere', $matiere->nom);
         }
 
+        // Filtrer par difficulté si spécifié
         if ($request->filled('difficulty')) {
             $exercices->where('difficulty', $request->input('difficulty'));
         }
 
+        // Filtrer par recherche si spécifié
         if ($request->filled('search')) {
             $search = $request->input('search');
             $exercices->where(function($query) use ($search) {
@@ -45,15 +50,24 @@ class ExerciseController extends Controller
             });
         }
 
+        // Filtrer par visibilité
+        $exercices->where(function($query) {
+            $query->where('visibility', 'public')
+                ->orWhere(function($query) {
+                    $query->where('user_id', Auth::id())
+                        ->where('visibility', 'private');
+                });
+        });
+
         $exercices = $exercices->get();
 
         $stats = [
-            'total' => Exercise::count(),
-            'cours' => Exercise::where('type', 'cours')->count(),
-            'exercice' => Exercise::where('type', 'exercice')->count(),
-            'td' => Exercise::where('type', 'td')->count(),
-            'tp' => Exercise::where('type', 'tp')->count(),
-            'examen' => Exercise::where('type', 'examen')->count(),
+            'total' => $exercices->count(),
+            'cours' => $exercices->where('type', 'cours')->count(),
+            'exercice' => $exercices->where('type', 'exercice')->count(),
+            'td' => $exercices->where('type', 'td')->count(),
+            'tp' => $exercices->where('type', 'tp')->count(),
+            'examen' => $exercices->where('type', 'examen')->count(),
         ];
 
         return view('exercises.index', compact('exercices', 'matieres', 'stats'));
@@ -101,7 +115,7 @@ class ExerciseController extends Controller
     }
 
 
-    public function compare(Request $request, $id): \Illuminate\Contracts\View\Factory|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\View|\Illuminate\Contracts\Foundation\Application
+    public function compare(Request $request, $id)
     {
         $exercise = Exercise::findOrFail($id);
         $newContent = $request->query('newContent');
@@ -126,7 +140,7 @@ class ExerciseController extends Controller
         ]);
     }
 
-    public function update(Request $request, Exercise $exercise): \Illuminate\Http\RedirectResponse
+    public function update(Request $request, Exercise $exercise)
     {
         $request->validate([
             'content' => 'required|string',

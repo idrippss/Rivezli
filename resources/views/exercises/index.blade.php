@@ -1,5 +1,5 @@
+<!-- resources/views/exercises/index.blade.php -->
 @extends('layouts.app')
-
 
 <style>
 
@@ -50,8 +50,6 @@
     }
 
 </style>
-
-
 
 @section('content')
     <div class="container mt-5">
@@ -160,6 +158,7 @@
                             <h6 class="card-subtitle mb-2 text-muted">{{ $exercise->chapitre }}</h6>
                             <p class="card-text"><strong>Type :</strong> {{ ucfirst($exercise->type) }}</p>
                             <p class="card-text"><strong>Difficulté :</strong> {{ ucfirst($exercise->difficulty) }}</p>
+                            <p class="card-text"><strong>Visibilité :</strong> {{ ucfirst($exercise->visibility) }}</p>
                             <a href="{{ route('exercice.show', $exercise->id) }}" class="btn btn-primary">Voir le détail</a>
                         </div>
                     </div>

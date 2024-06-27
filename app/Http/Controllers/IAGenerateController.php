@@ -31,6 +31,7 @@ class IAGenerateController extends Controller
             'chapitre_id' => 'required|exists:chapitres,id',
             'type' => 'required|string|in:cours,exercice,td,examen,tp',
             'difficulty' => 'required|string|in:easy,medium,hard',
+            'visibility' => 'required|string|in:public,private',
         ]);
 
         $matiere = Matiere::find($request->input('matiere_id'))->nom;
@@ -38,6 +39,8 @@ class IAGenerateController extends Controller
         $type = $request->input('type');
         $prompt = $request->input('prompt');
         $difficulty = $request->input('difficulty');
+        $visibility = $request->input('visibility');
+
 
         // Récupérer les objectifs depuis la base de données
         $objectifs = json_decode($chapitre->objectif, true);

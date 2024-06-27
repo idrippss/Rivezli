@@ -1,4 +1,3 @@
-<!-- resources/views/layouts/navigation.blade.php -->
 <nav x-data="{ open: false }" class="bg-white border-b border-gray-100">
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -16,12 +15,21 @@
                     <x-nav-link href="/dashboard" :active="request()->is('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
-                    <x-nav-link href="/matieres" :active="request()->is('matieres')">
-                        {{ __('Matières') }}
-                    </x-nav-link>
-                    <x-nav-link href="/chapitres" :active="request()->is('chapitres')">
-                        {{ __('Support') }}
-                    </x-nav-link>
+                    @if (Auth::check() && Auth::user()->role == 'admin')
+                        <x-nav-link href="/matieres" :active="request()->is('matieres')">
+                            {{ __('Matières') }}
+                        </x-nav-link>
+                        <x-nav-link href="/chapitres" :active="request()->is('chapitres')">
+                            {{ __('Ressources des matières') }}
+                        </x-nav-link>
+
+
+                            <x-nav-link href="{{ route('users.index') }}" :active="request()->routeIs('users.index')">
+                                {{ __('Utilisateurs') }}
+                            </x-nav-link>
+
+
+                    @endif
                     <x-nav-link href="{{ route('ia-generate.index') }}" :active="request()->routeIs('ia-generate.index')">
                         {{ __('Génération IA') }}
                     </x-nav-link>
@@ -40,7 +48,7 @@
                                 <div>{{ Auth::user()->name }}</div>
                                 <div class="ml-1">
                                     <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                                        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 011.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
                                     </svg>
                                 </div>
                             </button>
@@ -83,12 +91,17 @@
             <x-responsive-nav-link href="/dashboard" :active="request()->is('dashboard')">
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
-            <x-responsive-nav-link href="/matieres" :active="request()->is('matieres')">
-                {{ __('Matières') }}
-            </x-responsive-nav-link>
-            <x-responsive-nav-link href="/chapitres" :active="request()->is('chapitres')">
-                {{ __('Support') }}
-            </x-responsive-nav-link>
+            @if (Auth::check() && Auth::user()->role == 'admin')
+                <x-responsive-nav-link href="/matieres" :active="request()->is('matieres')">
+                    {{ __('Matières') }}
+                </x-responsive-nav-link>
+                <x-responsive-nav-link href="/chapitres" :active="request()->is('chapitres')">
+                    {{ __('Ressources des matières') }}
+                </x-responsive-nav-link>
+                <x-nav-link href="{{ route('users.index') }}" :active="request()->routeIs('users.index')">
+                    {{ __('Utilisateurs') }}
+                </x-nav-link>
+            @endif
             <x-nav-link href="{{ route('ia-generate.index') }}" :active="request()->routeIs('ia-generate.index')">
                 {{ __('Génération IA') }}
             </x-nav-link>
