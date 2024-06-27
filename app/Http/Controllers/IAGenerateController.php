@@ -140,7 +140,34 @@ class IAGenerateController extends Controller
 
     }
 
+    public function correct(Exercise $exercise)
+    {
+        $fullPrompt = "
+        Matière: {$exercise->matiere}
+        Chapitre: {$exercise->chapitre}
+        Type de contenu: {$exercise->type} (cours, exercice, TD, TP, examen)
+        Niveau de difficulté: {$exercise->difficulty}
 
+        Contenu original:
+        {$exercise->content}
+
+        Instructions spécifiques:
+        - Donne la correction de cet exercice en détails.
+        ";
+
+        // Appeler l'API OpenAI pour le modèle GPT-4
+        $response = $this->openai->chat()->create([
+            'model' => 'gpt-4o',
+            'messages' => [
+                ['role' => 'system', 'content' => 'You are a university professor assistant.'],
+                ['role' => 'user', 'content' => $fullPrompt],
+            ],
+        ]);
+
+        $correctedContent = $response['choices'][0]['message']['content'];
+
+        return redirect()->route('exercises.compare', ['exercise' => $exercise->id, 'newContent' => $correctedContent]);
+    }
 
 
 

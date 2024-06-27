@@ -53,7 +53,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/exercises/{exercise}/improve', [ExerciseController::class, 'improve'])->name('exercises.improve');
     Route::get('/exercises/{exercise}/compare', [ExerciseController::class, 'compare'])->name('exercises.compare');
     Route::put('/exercises/{exercise}', [ExerciseController::class, 'update'])->name('exercises.update');
-
+    Route::post('exercises/{exercise}/correct', [ExerciseController::class, 'correct'])->name('exercises.correct');
     //User LListe root
     Route::resource('users', UserController::class)->except(['create', 'show']);
     Route::post('users/store-admin', [UserController::class, 'storeAdmin'])->name('users.storeAdmin');

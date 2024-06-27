@@ -7,10 +7,18 @@
             <div class="card-body">
                 <div class="d-flex justify-content-between align-items-center">
                     <h2 class="mb-3">Exercice</h2>
-                    <!-- Bouton pour ouvrir le modal -->
-                    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#improveModal">
-                        Améliorer la génération
-                    </button>
+                    <div>
+                        <!-- Bouton pour ouvrir le modal Améliorer -->
+                        <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#improveModal">
+                            Améliorer la génération
+                        </button>
+                        @if ($exercise->type == 'exercice')
+                            <!-- Bouton pour ouvrir le modal Corriger -->
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#correctModal">
+                                Corriger l'exercice
+                            </button>
+                        @endif
+                    </div>
                 </div>
                 <div class="mb-3">
                     <strong>Matière :</strong> {{ $exercise->matiere }}
@@ -60,6 +68,35 @@
             </div>
         </div>
     </div>
+
+    <!-- Modal pour corriger l'exercice -->
+    @if ($exercise->type == 'exercice')
+        <div class="modal fade" id="correctModal" tabindex="-1" aria-labelledby="correctModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <form action="{{ route('exercises.correct', $exercise->id) }}" method="POST">
+                        @csrf
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="correctModalLabel">Corriger l'exercice</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label for="correctionPrompt">Instructions pour corriger l'exercice :</label>
+                                <input type="text" class="form-control" id="correctionPrompt" name="correctionPrompt" placeholder="Écrire des instructions pour corriger" required>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+                            <button type="submit" class="btn btn-primary">Corriger l'exercice</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    @endif
 @endsection
 
 @section('scripts')

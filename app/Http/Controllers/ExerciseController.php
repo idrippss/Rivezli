@@ -152,4 +152,43 @@ class ExerciseController extends Controller
 
         return redirect()->route('exercice.show', $exercise->id)->with('success', 'Contenu mis à jour avec succès.');
     }
+
+
+    public function correct(Request $request, Exercise $exercise)
+    {
+        $request->validate([
+            'correctionPrompt' => 'required|string|max:255',
+        ]);
+
+        $prompt = $request->input('correctionPrompt');
+        $fullPrompt = "
+        Matière: {$exercise->matiere}
+        Chapitre: {$exercise->chapitre}
+        Type de contenu: {$exercise->type} (cours, exercice, TD, TP, examen)
+        Niveau de difficulté: {$exercise->difficulty}
+
+        Contenu original:
+        {$exercise->content}
+
+        Instructions spécifiques:
+        - Corrige cet exercice soit très cours dans votre réponse affiche le numéro de question et la réponse uniquement.
+        - $prompt
+        ";
+
+        $response = $this->openai->chat()->create([
+            'model' => 'gpt-4o',
+            'messages' => [
+                ['role' => 'system', 'content' => 'You are a university professor assistant.'],
+                ['role' => 'user', 'content' => $fullPrompt],
+            ],
+        ]);
+
+        $correctedContent = $response['choices'][0]['message']['content'];
+
+        return redirect()->route('exercises.compare', ['exercise' => $exercise->id, 'newContent' => $correctedContent]);
+    }
+
+
+
+
 }
